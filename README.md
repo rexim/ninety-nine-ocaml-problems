@@ -2,4 +2,4 @@
 
 Was inspired by [this](http://ocaml.org/tutorials/99problems.html).
 
-Solved **1/99**.
+Solved **2/99**.
