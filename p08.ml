@@ -2,6 +2,8 @@
  * 
  * Eliminate consecutive duplicates of list elements. *)
 
+open Simpletest;;
+
 (* My solution. *)
 
 let rec compress xs =
@@ -15,20 +17,14 @@ let rec compress xs =
      | []      -> []
      | y :: ys -> y :: compress (drop_value y xs);;
 
-(* Solution from the link from the README.  *)
-
-let rec compress_improved xs =
-  match xs with
-  | a :: (b :: _ as t) -> if a = b then compress t else a :: compress t
-  | x -> x;;
-
 (* Testing *)
 
-let test_data =
-  [`a; `a; `a; `a; `b; `c; `c; `a; `a; `d; `e; `e; `e; `e];;
-
-let expected_result =
-  [`a; `b; `c; `a; `d; `e];;
-
-assert(expected_result = compress test_data);;
-assert(expected_result = compress_improved test_data);;
+test "Problem 08"
+     (fun () ->
+      let test_data =
+        [`a; `a; `a; `a; `b; `c; `c; `a; `a; `d; `e; `e; `e; `e]
+      in
+      let expected_result =
+        [`a; `b; `c; `a; `d; `e]
+      in
+      assert(expected_result = compress test_data));;

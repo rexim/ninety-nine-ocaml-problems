@@ -6,6 +6,8 @@
  * element has no duplicates it is simply copied into the result
  * list. Only elements with duplicates are transferred as (N E) lists. *)
 
+open Simpletest;;
+
 (* Solution *)
 
 type 'a rle =
@@ -29,15 +31,17 @@ let encode xs =
 
 (* Testing *)
 
-let test_data =
-  [`a;`a;`a;`a;`b;`c;`c;`a;`a;`d;`e;`e;`e;`e];;
-
-let expected_result =
-  [Many (4, `a); One `b;
-   Many (2, `c); Many (2, `a);
-   One `d; Many (4, `e)];;
-
-assert (expected_result = encode test_data);;
-assert ([] = encode []);;
-assert ([One `a] = encode [`a]);;
-assert ([Many (2, `b)] = encode [`b; `b]);;
+test "Problem 11"
+     (fun () ->
+      let test_data =
+        [`a;`a;`a;`a;`b;`c;`c;`a;`a;`d;`e;`e;`e;`e]
+      in
+      let expected_result =
+        [Many (4, `a); One `b;
+         Many (2, `c); Many (2, `a);
+         One `d; Many (4, `e)]
+      in
+      assert (expected_result = encode test_data);
+      assert ([] = encode []);
+      assert ([One `a] = encode [`a]);
+      assert ([Many (2, `b)] = encode [`b; `b]));;

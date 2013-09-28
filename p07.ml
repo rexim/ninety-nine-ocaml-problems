@@ -2,6 +2,8 @@
  * 
  * Flatten a nested list structure *)
 
+open Simpletest;;
+
 (* There is no nested list type in OCaml, so we need to define one
  * first. A node of a nested list is either an element, or a list of
  * nodes. *)
@@ -19,10 +21,8 @@ let flatten nodes =
 
 (* Testing *)
 
-let test_data =
-  [ One `a ; Many [ One `b ; Many [ One `c ; One `d ] ; One `e ] ];;
-
-let expected_result =
-  [`a; `b; `c; `d; `e];;
-
-assert(flatten test_data = expected_result);;
+test "Problem 07"
+     (fun () ->
+      let expected_result = [`a; `b; `c; `d; `e] in
+      let test_data = [One `a; Many [One `b; Many [One `c; One `d]; One `e]] in
+      assert (expected_result = flatten test_data));;

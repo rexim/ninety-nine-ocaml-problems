@@ -2,6 +2,8 @@
  *
  * Find the k'th element of a list. *)
 
+open Simpletest;;
+
 let rec at i xs =
   if i > 0
   then match xs with
@@ -11,5 +13,7 @@ let rec at i xs =
                     else at (i - 1) ys
   else None;;
 
-assert(at 3 [`a; `b; `c; `d; `e] = Some `c);;
-assert(at 3 [`a] = None);;
+test "Problem 03"
+     (fun () ->
+      assert(at 3 [`a; `b; `c; `d; `e] = Some `c);
+      assert(at 3 [`a] = None));;

@@ -2,6 +2,8 @@
  *
  * Pack consecutive duplicates of list elements into sublists. *)
 
+open Simpletest;;
+
 (* Solution *)
 
 let pack xs =
@@ -16,15 +18,17 @@ let pack xs =
 
 (* Testing *)
 
-let test_data =
-  [`a;`a;`a;`a;`b;`c;`c;`a;`a;`d;`d;`e;`e;`e;`e];;
-
-let expected_result =
-  [[`a; `a; `a; `a];
-   [`b];
-   [`c; `c];
-   [`a; `a];
-   [`d; `d];
-   [`e; `e; `e; `e]];;
-
-assert (expected_result = pack test_data);;
+test "Problem 09"
+     (fun () ->
+      let test_data =
+        [`a;`a;`a;`a;`b;`c;`c;`a;`a;`d;`d;`e;`e;`e;`e]
+      in
+      let expected_result =
+        [[`a; `a; `a; `a];
+         [`b];
+         [`c; `c];
+         [`a; `a];
+         [`d; `d];
+         [`e; `e; `e; `e]]
+      in
+      assert (expected_result = pack test_data));;

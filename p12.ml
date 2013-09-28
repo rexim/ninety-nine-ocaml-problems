@@ -5,6 +5,8 @@
  * Given a run-length code list generated as specified in the previous
  * problem, construct its uncompressed version *)
 
+open Simpletest;;
+
 (* Solution *)
 
 type 'a rle =
@@ -26,11 +28,13 @@ let decode xs =
 
 (* Testing *)
 
-let test_data =
-  [Many (4,`a); One `b; Many (2,`c); Many (2,`a); One `d; Many (4,`e)];;
-
-let expected_result =
-  [`a; `a; `a; `a; `b; `c; `c; `a; `a; `d; `e; `e; `e; `e];;
-
-assert (expected_result = decode test_data);;
-assert ([] = decode []);;
+test "Problem 12"
+     (fun () ->
+      let test_data =
+        [Many (4,`a); One `b; Many (2,`c); Many (2,`a); One `d; Many (4,`e)]
+      in
+      let expected_result =
+        [`a; `a; `a; `a; `b; `c; `c; `a; `a; `d; `e; `e; `e; `e]
+      in
+      assert (expected_result = decode test_data);
+      assert ([] = decode []));;

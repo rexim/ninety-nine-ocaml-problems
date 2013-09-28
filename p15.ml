@@ -2,6 +2,8 @@
  *
  * Replicate the elements of a list a given number of lines. *)
 
+open Simpletest;;
+
 (* Solution *)
 
 let replicate xs n =
@@ -18,10 +20,12 @@ let replicate xs n =
 
 (* Testing *)
 
-let test_data =
-  [`a; `b; `c];;
-
-let expected_result =
-  [`a; `a; `a; `b; `b; `b; `c; `c; `c];;
-
-assert (expected_result = replicate test_data 3);;
+test "Problem 15"
+     (fun () ->
+      let test_data =
+        [`a; `b; `c]
+      in
+      let expected_result =
+        [`a; `a; `a; `b; `b; `b; `c; `c; `c]
+      in
+      assert (expected_result = replicate test_data 3));;

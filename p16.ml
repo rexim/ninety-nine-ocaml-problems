@@ -2,6 +2,8 @@
  *
  * Drop every N'th element from a list. *)
 
+open Simpletest;;
+
 (* Solution *)
 
 let drop xs n =
@@ -15,10 +17,12 @@ let drop xs n =
 
 (* Testing *)
 
-let test_data =
-  [`a; `b; `c; `d; `e; `f; `g; `h; `i; `j];;
-
-let expected_result =
-  [`a; `b; `d; `e; `g; `h; `j];;
-
-assert(expected_result = drop test_data 3);;
+test "Problem 16"
+     (fun () ->
+      let test_data =
+        [`a; `b; `c; `d; `e; `f; `g; `h; `i; `j]
+      in
+      let expected_result =
+        [`a; `b; `d; `e; `g; `h; `j]
+      in
+      assert(expected_result = drop test_data 3));;

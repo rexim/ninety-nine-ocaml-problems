@@ -7,6 +7,8 @@
  * list, then the first part is the list and the second part
  * is empty. *)
 
+open Simpletest;;
+
 (* Solution *)
 
 let split xs n =
@@ -33,4 +35,7 @@ let test2 () =
   let expected = ([`a; `b; `c; `d], []) in
   assert (expected = split xs n);;
 
-List.iter (fun f -> f ()) [test1; test2];;
+test "Problem 17"
+     (fun () ->
+      test1 ();
+      test2 ());;

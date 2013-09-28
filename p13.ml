@@ -12,6 +12,8 @@
 (* What?! I've already solved this problem that way! See my solution
  * of problem 11. I'll just copy it here. *)
 
+open Simpletest;;
+
 (* Solution *)
 
 type 'a rle =
@@ -35,15 +37,17 @@ let encode xs =
 
 (* Testing *)
 
-let test_data =
-  [`a;`a;`a;`a;`b;`c;`c;`a;`a;`d;`e;`e;`e;`e];;
-
-let expected_result =
-  [Many (4, `a); One `b;
-   Many (2, `c); Many (2, `a);
-   One `d; Many (4, `e)];;
-
-assert (expected_result = encode test_data);;
-assert ([] = encode []);;
-assert ([One `a] = encode [`a]);;
-assert ([Many (2, `b)] = encode [`b; `b]);;
+test "Problem 13"
+     (fun () ->
+      let test_data =
+        [`a;`a;`a;`a;`b;`c;`c;`a;`a;`d;`e;`e;`e;`e]
+      in
+      let expected_result =
+        [Many (4, `a); One `b;
+         Many (2, `c); Many (2, `a);
+         One `d; Many (4, `e)]
+      in
+      assert (expected_result = encode test_data);
+      assert ([] = encode []);
+      assert ([One `a] = encode [`a]);
+      assert ([Many (2, `b)] = encode [`b; `b]));;

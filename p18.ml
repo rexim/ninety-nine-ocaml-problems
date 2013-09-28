@@ -7,6 +7,8 @@
  * list (both limits included). Start counting the elements with 0
  * (this is way the `List` module numbers elements. *)
 
+open Simpletest;;
+
 (* Solution *)
 
 let slice xs i k =
@@ -28,11 +30,10 @@ let slice xs i k =
 
 (* Testing *)
 
-let test1 () =
-  let xs = [`a;`b;`c;`d;`e;`f;`g;`h;`i;`j] in
-  let i = 2 in
-  let k = 6 in
-  let expected = [`c; `d; `e; `f; `g] in
-  assert (expected = slice xs i k);;
-
-List.iter (fun f -> f ()) [test1];;
+test "Problem 18"
+     (fun () ->
+      let xs = [`a;`b;`c;`d;`e;`f;`g;`h;`i;`j] in
+      let i = 2 in
+      let k = 6 in
+      let expected = [`c; `d; `e; `f; `g] in
+      assert (expected = slice xs i k));;
