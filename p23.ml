@@ -35,5 +35,6 @@ let rand_select xs n =
 
 test (fun () ->
       (* NOTE(rexim): was tested on OCaml 3.12.1. May not work on
-      other versions. *)
+      other versions due to differences between implementations of
+      Random.int. *)
       assert ([`g; `d; `a] = rand_select [`a;`b;`c;`d;`e;`f;`g;`h] 3));;
