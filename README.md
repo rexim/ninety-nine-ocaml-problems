@@ -2,7 +2,7 @@
 
 Was inspired by [this](http://ocaml.org/tutorials/99problems.html).
 
-Solved **22/99**.
+Solved **23/99**.
 
 ## Testing ##
 
