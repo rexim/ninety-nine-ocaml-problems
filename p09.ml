@@ -18,8 +18,7 @@ let pack xs =
 
 (* Testing *)
 
-test "Problem 09"
-     (fun () ->
+test (fun () ->
       let test_data =
         [`a;`a;`a;`a;`b;`c;`c;`a;`a;`d;`d;`e;`e;`e;`e]
       in

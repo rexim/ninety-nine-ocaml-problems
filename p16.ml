@@ -17,8 +17,7 @@ let drop xs n =
 
 (* Testing *)
 
-test "Problem 16"
-     (fun () ->
+test (fun () ->
       let test_data =
         [`a; `b; `c; `d; `e; `f; `g; `h; `i; `j]
       in

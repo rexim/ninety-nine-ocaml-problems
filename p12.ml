@@ -28,8 +28,7 @@ let decode xs =
 
 (* Testing *)
 
-test "Problem 12"
-     (fun () ->
+test (fun () ->
       let test_data =
         [Many (4,`a); One `b; Many (2,`c); Many (2,`a); One `d; Many (4,`e)]
       in

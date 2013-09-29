@@ -19,8 +19,7 @@ let rec compress xs =
 
 (* Testing *)
 
-test "Problem 08"
-     (fun () ->
+test (fun () ->
       let test_data =
         [`a; `a; `a; `a; `b; `c; `c; `a; `a; `d; `e; `e; `e; `e]
       in

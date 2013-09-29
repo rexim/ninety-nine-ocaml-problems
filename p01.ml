@@ -11,7 +11,6 @@ let rec last xs =
   | [x]     -> Some x
   | _ :: ys -> last ys;;
 
-test "Problem 01"
-     (fun () ->
+test (fun () ->
       assert(Some `d = last [`a ; `b ; `c ; `d]);
       assert(None = last []));;

@@ -27,8 +27,7 @@ let rotate xs n =
 
 (* Testing *)
 
-test "Problem 19"
-     (fun () ->
+test (fun () ->
       assert (["d"; "e"; "f"; "g"; "h"; "a"; "b"; "c"] = rotate ["a"; "b"; "c"; "d"; "e"; "f"; "g"; "h"] 3);
       assert (["g"; "h"; "a"; "b"; "c"; "d"; "e"; "f"] = rotate ["a"; "b"; "c"; "d"; "e"; "f"; "g"; "h"] (-2));
       assert (["a"; "b"; "c"; "d"; "e"; "f"; "g"; "h"] = rotate ["a"; "b"; "c"; "d"; "e"; "f"; "g"; "h"] 8);

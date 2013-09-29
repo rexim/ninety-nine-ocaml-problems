@@ -20,8 +20,7 @@ let encode xs =
 
 (* Testing *)
 
-test "Problem 10"
-     (fun () ->
+test (fun () ->
       let test_data =
         [`a;`a;`a;`a;`b;`c;`c;`a;`a;`d;`e;`e;`e;`e]
       in

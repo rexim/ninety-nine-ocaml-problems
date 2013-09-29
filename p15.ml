@@ -20,8 +20,7 @@ let replicate xs n =
 
 (* Testing *)
 
-test "Problem 15"
-     (fun () ->
+test (fun () ->
       let test_data =
         [`a; `b; `c]
       in

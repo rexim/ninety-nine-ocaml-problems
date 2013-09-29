@@ -13,7 +13,6 @@ let rec at i xs =
                     else at (i - 1) ys
   else None;;
 
-test "Problem 03"
-     (fun () ->
+test (fun () ->
       assert(at 3 [`a; `b; `c; `d; `e] = Some `c);
       assert(at 3 [`a] = None));;

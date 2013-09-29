@@ -8,5 +8,6 @@ if [ -z "$MAKEFILE_PRIVATE" ]; then
 fi
 
 for i in `find -name p\*.ml | sort`; do
+    echo "Testing $i"
     ocaml simpletest.cmo $i
 done

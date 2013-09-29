@@ -13,6 +13,5 @@ let rec remove_at n xs =
 
 (* Testing *)
 
-test "Problem 20"
-     (fun () ->
+test (fun () ->
       assert ([`a; `c; `d] = remove_at 1 [`a; `b; `c; `d]));;

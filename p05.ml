@@ -15,7 +15,6 @@ let rev xs =
     | y :: ys -> rev_impl ys (y :: rs) 
   in rev_impl xs [];;
 
-test "Problem 05"
-     (fun () ->
+test (fun () ->
       assert ([`c; `b; `a] = rev [`a; `b; `c]);
       assert ([] = rev []));;

@@ -9,7 +9,7 @@ simpletest.cmo: simpletest.ml
 
 .PHONY: help test clean
 
-test: simpletest.cmo
+test: simpletest.cmo ./private/run_test.sh
 	@MAKEFILE_PRIVATE=1 ./private/run_test.sh
 
 clean:

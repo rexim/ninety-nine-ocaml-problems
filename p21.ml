@@ -15,6 +15,5 @@ let rec insert_at x n xs =
 
 (* Testing *)
 
-test "Problem 21"
-     (fun () ->
+test (fun () ->
       assert ([`a; `alfa; `b; `c; `d] = insert_at `alfa 1 [`a; `b; `c; `d]));;

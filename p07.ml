@@ -21,8 +21,7 @@ let flatten nodes =
 
 (* Testing *)
 
-test "Problem 07"
-     (fun () ->
+test (fun () ->
       let expected_result = [`a; `b; `c; `d; `e] in
       let test_data = [One `a; Many [One `b; Many [One `c; One `d]; One `e]] in
       assert (expected_result = flatten test_data));;

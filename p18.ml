@@ -30,8 +30,7 @@ let slice xs i k =
 
 (* Testing *)
 
-test "Problem 18"
-     (fun () ->
+test (fun () ->
       let xs = [`a;`b;`c;`d;`e;`f;`g;`h;`i;`j] in
       let i = 2 in
       let k = 6 in

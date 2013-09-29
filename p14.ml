@@ -9,6 +9,5 @@ let rec duplicate xs =
   | [] -> []
   | t :: ts -> t :: t :: duplicate ts;;
 
-test "Problem 14"
-     (fun () ->
+test (fun () ->
       assert([`a; `a; `b; `b; `c; `c; `c; `c] = duplicate [`a; `b; `c; `c]));;

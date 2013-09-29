@@ -21,8 +21,7 @@ let length_tail_recursive xs =
     | _ :: ys -> length_impl (acc + 1) ys
   in length_impl 0 xs;;
 
-test "Problem 04"
-     (fun () ->
+test (fun () ->
       assert (length [`a; `b; `c] = 3);
       assert (length [] = 0);
       assert (length_tail_recursive [`a; `b; `c] = 3);

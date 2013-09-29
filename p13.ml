@@ -37,8 +37,7 @@ let encode xs =
 
 (* Testing *)
 
-test "Problem 13"
-     (fun () ->
+test (fun () ->
       let test_data =
         [`a;`a;`a;`a;`b;`c;`c;`a;`a;`d;`e;`e;`e;`e]
       in

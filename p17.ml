@@ -35,7 +35,6 @@ let test2 () =
   let expected = ([`a; `b; `c; `d], []) in
   assert (expected = split xs n);;
 
-test "Problem 17"
-     (fun () ->
+test (fun () ->
       test1 ();
       test2 ());;

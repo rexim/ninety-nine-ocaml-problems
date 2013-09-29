@@ -1,8 +1,7 @@
 open Printf;;
 
-let test test_name test_function =
+let test test_function =
   try
-    print_endline test_name;
     test_function ()
   with
   | Assert_failure (filename, row, column) ->

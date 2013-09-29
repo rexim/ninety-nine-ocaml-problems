@@ -19,8 +19,7 @@ let range first last =
     
 (* Testing *)
 
-test "Problem 22"
-     (fun () ->
+test (fun () ->
       assert ([4; 5; 6; 7; 8; 9] = range 4 9);
       assert ([9; 8; 7; 6; 5; 4] = range 9 4);
       assert ([10] = range 10 10));;
