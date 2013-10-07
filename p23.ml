@@ -29,12 +29,15 @@ let rand_select xs n =
          rand_select_aux (remove_at i xs)
                          (n - 1)
                          ((take_at i xs) :: result)
-  in rand_select_aux xs n [];;
+  in
+  let len = List.length xs in
+  rand_select_aux xs (min len n) [];;
 
 (* Testing *)
 
 test (fun () ->
-      (* NOTE(rexim): was tested on OCaml 3.12.1. May not work on
-      other versions due to differences between implementations of
-      Random.int. *)
-      assert ([`g; `d; `a] = rand_select [`a;`b;`c;`d;`e;`f;`g;`h] 3));;
+      let xs = [`a;`b;`c;`d;`e;`f;`g;`h] in
+      let n = 3 in
+      let result = rand_select xs n in
+      assert (List.length result = n);
+      assert (List.for_all (fun x -> List.exists ((=) x) xs) result));;
