@@ -1,18 +1,19 @@
 (* Problem 11
- *
- * Modified run-length encoding.
- *
- * Modify the result of the previous problem in such a way that if an
- * element has no duplicates it is simply copied into the result
- * list. Only elements with duplicates are transferred as (N E) lists. *)
 
-open Simpletest;;
+   Modified run-length encoding.
+
+   Modify the result of the previous problem in such a way that if an
+   element has no duplicates it is simply copied into the result
+   list. Only elements with duplicates are transferred as (N E)
+   lists. *)
+
+open Simpletest
 
 (* Solution *)
 
 type 'a rle =
   | One of 'a
-  | Many of (int * 'a);;
+  | Many of (int * 'a)
 
 let encode xs =
   let rec encode_aux xs current result =
@@ -27,20 +28,21 @@ let encode xs =
   in
   match xs with
   | [] -> []
-  | t :: ts -> List.rev (encode_aux ts (One t) []);;
+  | t :: ts -> List.rev (encode_aux ts (One t) [])
 
 (* Testing *)
 
-test (fun () ->
-      let test_data =
-        [`a;`a;`a;`a;`b;`c;`c;`a;`a;`d;`e;`e;`e;`e]
-      in
-      let expected_result =
-        [Many (4, `a); One `b;
-         Many (2, `c); Many (2, `a);
-         One `d; Many (4, `e)]
-      in
-      assert (expected_result = encode test_data);
-      assert ([] = encode []);
-      assert ([One `a] = encode [`a]);
-      assert ([Many (2, `b)] = encode [`b; `b]));;
+let _ =
+  test (fun () ->
+        let test_data =
+          [`a;`a;`a;`a;`b;`c;`c;`a;`a;`d;`e;`e;`e;`e]
+        in
+        let expected_result =
+          [Many (4, `a); One `b;
+           Many (2, `c); Many (2, `a);
+           One `d; Many (4, `e)]
+        in
+        assert (expected_result = encode test_data));
+  test (fun () -> assert ([] = encode []));
+  test (fun () -> assert ([One `a] = encode [`a]));
+  test (fun () -> assert ([Many (2, `b)] = encode [`b; `b]))

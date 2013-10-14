@@ -1,8 +1,10 @@
 (* Problem 03
- *
- * Find the k'th element of a list. *)
 
-open Simpletest;;
+   Find the k'th element of a list. *)
+
+open Simpletest
+
+(* Solution *)
 
 let rec at i xs =
   if i > 0
@@ -11,8 +13,10 @@ let rec at i xs =
        | y :: ys -> if i = 1
                     then Some y
                     else at (i - 1) ys
-  else None;;
+  else None
 
-test (fun () ->
-      assert(at 3 [`a; `b; `c; `d; `e] = Some `c);
-      assert(at 3 [`a] = None));;
+(* Testing *)
+
+let _ =
+  test (fun () -> assert (at 3 [`a; `b; `c; `d; `e] = Some `c));
+  test (fun () -> assert (at 3 [`a] = None))

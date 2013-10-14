@@ -1,8 +1,8 @@
 (* Problem 10
- *
- * Run-length encoding of a list *)
 
-open Simpletest;;
+   Run-length encoding of a list *)
+
+open Simpletest
 
 (* Solution *)
 
@@ -16,17 +16,18 @@ let encode xs =
   in
   match xs with
   | [] -> []
-  | t :: ts -> List.rev (encode_aux ts (1, t) []);;
+  | t :: ts -> List.rev (encode_aux ts (1, t) [])
 
 (* Testing *)
 
-test (fun () ->
-      let test_data =
-        [`a;`a;`a;`a;`b;`c;`c;`a;`a;`d;`e;`e;`e;`e]
-      in
-      let expected_result =
-        [(4, `a); (1, `b);
-         (2, `c); (2, `a);
-         (1, `d); (4, `e)]
-      in
-      assert (expected_result = encode test_data));;
+let _ =
+  test (fun () ->
+        let test_data =
+          [`a;`a;`a;`a;`b;`c;`c;`a;`a;`d;`e;`e;`e;`e]
+        in
+        let expected_result =
+          [(4, `a); (1, `b);
+           (2, `c); (2, `a);
+           (1, `d); (4, `e)]
+        in
+        assert (expected_result = encode test_data))

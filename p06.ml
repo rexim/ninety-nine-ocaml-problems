@@ -1,12 +1,11 @@
 (* Problem 06
- * 
- * Find out whether a list is a palindrome. 
- *)
 
-open Simpletest;;
+   Find out whether a list is a palindrome. *)
 
-let is_palindrome xs = xs = List.rev xs ;;
+open Simpletest
 
-test (fun () ->
-      assert (is_palindrome [`x; `a; `m; `a; `x]);
-      assert (not (is_palindrome [`a; `b])));;
+let is_palindrome xs = xs = List.rev xs
+
+let _ =
+  test (fun () -> assert (is_palindrome [`x; `a; `m; `a; `x]));
+  test (fun () -> assert (not (is_palindrome [`a; `b])))

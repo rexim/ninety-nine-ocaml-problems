@@ -1,24 +1,24 @@
 (* Problem 13
- *
- * Run-length encoding of a list (direct solution).
- *
- * Implement the so-called run-length encoding data compression method
- * directly. I.e. don't explicitly create the sublists containing the
- * duplicates, as in problem "Pack consecutive duplicates of list
- * elements into sublists", but only count them. As in problem "Modified
- * run-length encoding", simplify the result list by replacing the
- * singleton lists (1 X) by X. *)
+
+   Run-length encoding of a list (direct solution).
+
+   Implement the so-called run-length encoding data compression method
+   directly. I.e. don't explicitly create the sublists containing the
+   duplicates, as in problem "Pack consecutive duplicates of list
+   elements into sublists", but only count them. As in problem
+   "Modified run-length encoding", simplify the result list by
+   replacing the singleton lists (1 X) by X. *)
 
 (* What?! I've already solved this problem that way! See my solution
- * of problem 11. I'll just copy it here. *)
+   of problem 11. I'll just copy it here. *)
 
-open Simpletest;;
+open Simpletest
 
 (* Solution *)
 
 type 'a rle =
   | One of 'a
-  | Many of (int * 'a);;
+  | Many of (int * 'a)
 
 let encode xs =
   let rec encode_aux xs current result =
@@ -33,20 +33,21 @@ let encode xs =
   in
   match xs with
   | [] -> []
-  | t :: ts -> List.rev (encode_aux ts (One t) []);;
+  | t :: ts -> List.rev (encode_aux ts (One t) [])
 
 (* Testing *)
 
-test (fun () ->
-      let test_data =
-        [`a;`a;`a;`a;`b;`c;`c;`a;`a;`d;`e;`e;`e;`e]
-      in
-      let expected_result =
-        [Many (4, `a); One `b;
-         Many (2, `c); Many (2, `a);
-         One `d; Many (4, `e)]
-      in
-      assert (expected_result = encode test_data);
-      assert ([] = encode []);
-      assert ([One `a] = encode [`a]);
-      assert ([Many (2, `b)] = encode [`b; `b]));;
+let _ =
+  test (fun () ->
+        let test_data =
+          [`a;`a;`a;`a;`b;`c;`c;`a;`a;`d;`e;`e;`e;`e]
+        in
+        let expected_result =
+          [Many (4, `a); One `b;
+           Many (2, `c); Many (2, `a);
+           One `d; Many (4, `e)]
+        in
+        assert (expected_result = encode test_data));
+  test (fun () -> assert ([] = encode []));
+  test (fun () -> assert ([One `a] = encode [`a]));
+  test (fun () -> assert ([Many (2, `b)] = encode [`b; `b]))
