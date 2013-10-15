@@ -2,6 +2,7 @@
 
    Generate a random permutation of the elements of a list *)
 
+open Pervasives
 open Simpletest
 
 (* Solution *)
@@ -36,4 +37,4 @@ let _ =
   test (fun () ->
         let xs = [`a; `b; `c; `d; `e; `f] in
         let result = permutation xs in
-        assert (List.sort Pervasives.compare result = List.sort Pervasives.compare xs))
+        assert (List.sort compare result = List.sort compare xs))
