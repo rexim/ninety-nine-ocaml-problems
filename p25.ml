@@ -1,6 +1,6 @@
 (* Problem 25.
 
-   Generate a random permutatino of the elements of a list *)
+   Generate a random permutation of the elements of a list *)
 
 open Simpletest
 
